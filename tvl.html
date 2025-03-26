@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVL</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            width: 100%;
+            text-decoration: none;
+            flex-wrap: wrap;
+        }
+
+        .header img {
+            width: 80px;
+            height: auto;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+            gap: 10px;
+        }
+
+        .box-left,
+        .box-right {
+            background-color: #1a4a9e;
+            color: white;
+            border-radius: 10px;
+            padding: 40px;
+        }
+
+        .box-left {
+            width: 60%;
+            height: 300px;
+        }
+
+        .box-left h1 {
+            background-color: #0f2a63;
+            width: 100%;
+            display: block;
+            padding: 15px;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .box-right {
+            width: 30%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+            gap: 20px;
+            transform: translateX(-20px);
+        }
+
+        .upload-container {
+            background-color: #0f2a63;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            height: auto;
+            gap: 10px;
+            overflow: hidden;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            max-width: 100%;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #1e3a8a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: #4f9cff;
+            color: white;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            max-height: 150px;
+            border-radius: 10px;
+            display: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="PROTOTYPE.html" class="header">
+        <img src="IMAGES 2.0/photo_6273797757814818524_y-removebg-preview.png" alt="School Logo">
+        <h1>STO CRISTO INTEGRATED SCHOOL</h1>
+    </a>
+
+    <div class="container">
+        <div class="box-left">
+            <h1>ABOUT TVL</h1>
+            <p>The Technical-Vocational-Livelihood (TVL)
+                 strand is a senior high school track designed for
+                  students who want to gain hands-on experience and practical skills 
+                  in various technical fields. TVL provides specialized training in areas
+                   such as Home Economics, Information and Communications Technology (ICT),
+                    Industrial Arts, and Agri-Fishery Arts, preparing students for immediate
+                     employment, entrepreneurship, or further technical education.
+
+                Students in the TVL strand engage in skills-based learning, industry-based training, 
+                and certifications that align with real-world job demands. They also have the 
+                opportunity to earn TESDA National Certificates (NCs), which serve as professional 
+                credentials recognized by employers both locally and internationally. This strand 
+                is ideal for students who wish to pursue careers as chefs, mechanics, electricians, 
+                programmers, agriculturists, or business owners in various skilled industries.</p>
+        </div>
+
+        <div class="box-right">
+            <h2>Upload The Following Requirements</h2>
+            <div class="upload-container">
+                <form action="upload.php" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="photo1" class="fileInput" accept="image/*" required>
+                    <img class="image-preview" alt="Image Preview">
+                    <button type="submit" class="submit-btn">Submit Photo</button>
+                </form>
+            </div>
+            <div class="upload-container">
+                <form action="upload.php" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="photo2" class="fileInput" accept="image/*" required>
+                    <img class="image-preview" alt="Image Preview">
+                    <button type="submit" class="submit-btn">Submit Photo</button>
+                </form>
+            </div>
+            <div class="upload-container">
+                <form action="upload.php" method="POST" enctype="multipart/form-data">
+                    <input type="file" name="photo3" class="fileInput" accept="image/*" required>
+                    <img class="image-preview" alt="Image Preview">
+                    <button type="submit" class="submit-btn">Submit Photo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

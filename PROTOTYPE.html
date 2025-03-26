@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STO CRISTO INTEGRATED SCHOOL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            background: linear-gradient(to right, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .header a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            gap: 10px;
+        }
+
+        .header img {
+            width: 100px;
+            height: auto;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        .search-bar {
+            background-color: #1e3a8a;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .search-bar input {
+            padding: 10px;
+            width: 500px;
+            border: 2px solid #3b82f6;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .preview-container {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 10px;
+            z-index: 1;
+        }
+
+        .preview-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .preview-item:hover {
+            background-color: #f1f1f1;
+        }
+
+        .preview-item img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .preview-item p {
+            margin: 0;
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .text-box {
+            background-color: #1a4a9e;
+            color: white;
+            padding: 50px;
+            width: 95%;
+            min-height: 500px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            overflow: hidden;
+        }
+
+        .left-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 30%;
+        }
+
+        .box {
+            background-color: #0f2a63;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            position: relative;
+            flex-direction: column;
+            gap: 10px;
+            height: auto;
+        }
+
+        .tiny-box {
+            min-width: 60px;
+            min-height: 30px;
+            background-color: #1a4a9e;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5px 10px;
+            white-space: nowrap;
+            width: auto;
+            max-width: 100%;
+        }
+
+        .text-content {
+            width: 65%;
+            text-align: left;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        .image-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .image-links a {
+            position: relative;
+            display: block;
+            width: 250px;
+            height: 450px;
+            border: 2px solid #1e3a8a;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .image-links a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+        }
+
+        .image-links img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hover-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .text-box {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left-section {
+                width: 100%;
+            }
+
+            .text-content {
+                width: 100%;
+                text-align: center;
+            }
+
+            .search-bar input {
+                width: 100%;
+            }
+
+            .image-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .image-links a {
+                width: 100%;
+                height: auto;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="PROTOTYPE.html">
+            <img src="IMAGES 2.0/photo_6273797757814818524_y-removebg-preview.png" alt="School Logo">
+            <h1>STO. CRISTO INTEGRATED SCHOOL</h1>
+        </a>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search...">
+        <div class="preview-container" id="preview-container">
+            <!-- Dynamic content will go here -->
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="text-box">
+            <div class="left-section">
+                <div class="box">SCHOOL UPDATE <div class="tiny-box">March 27th Pre defense</div></div>
+                <div class="box">SCHOOL UPDATE <div class="tiny-box">April 2nd Final Defense</div></div>
+                <div class="box">SCHOOL UPDATE <div class="tiny-box">April 14th GRADUATION!!</div></div>
+            </div>
+            <div class="text-content">
+                <p>
+                    Education serves as the foundation of a bright future, and Sto. Cristo Integrated School, located in Barangay Santo Cristo, 
+                    Tarlac City, stands as a beacon of learning and growth. As a public institution dedicated to academic excellence, the school 
+                    provides comprehensive education from elementary to senior high school, ensuring that students receive the knowledge, skills, 
+                    and values necessary to succeed in their chosen careers.
+                </p>
+                <p>
+                    One of the highlights of Sto. Cristo Integrated School is its Senior High School (SHS) program, which offers a variety of 
+                    strands under the K to 12 curriculum. These strands allow students to focus on fields that align with their interests and 
+                    future aspirations, preparing them for both higher education and employment opportunities.
+                </p>
+                <p>
+                    The Science, Technology, Engineering, and Mathematics (STEM) strand is ideal for students who are passionate about scientific 
+                    discoveries, problem-solving, and innovation. It focuses on developing critical thinking and analytical skills, making it the 
+                    perfect choice for those who aspire to become engineers, doctors, IT specialists, or scientists.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="image-links">
+        <a href="stem.html" id="stem-link"><img src="IMAGES 2.0/s.jpg" alt="STEM"><div class="hover-text">Explore STEM Program</div></a>
+        <a href="humss.html" id="humss-link"><img src="IMAGES 2.0/h.jpg" alt="HUMSS"><div class="hover-text">Discover HUMSS Track</div></a>
+        <a href="tvl.html" id="tvl-link"><img src="IMAGES 2.0/t.jpg" alt="TVL"><div class="hover-text">TVL Track Information</div></a>
+        <a href="abm.html" id="abm-link"><img src="IMAGES 2.0/a.jpg" alt="ABM"><div class="hover-text">Learn about ABM Strand</div></a>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById("search-input");
+        const previewContainer = document.getElementById("preview-container");
+
+        const previews = [
+            { name: "STEM", image: "IMAGES 2.0/1.png", link: "stem.html" },
+            { name: "HUMSS", image: "IMAGES 2.0/2.png", link: "humss.html" },
+            { name: "TVL", image: "IMAGES 2.0/3.png", link: "tvl.html" },
+            { name: "ABM", image: "IMAGES 2.0/4.png", link: "abm.html" },
+        ];
+
+        searchInput.addEventListener("input", function () {
+            const searchTerm = searchInput.value.toLowerCase();
+            previewContainer.innerHTML = '';
+
+            if (searchTerm) {
+                const filteredPreviews = previews.filter(p => p.name.toLowerCase().includes(searchTerm));
+                
+                filteredPreviews.forEach(p => {
+                    const previewItem = document.createElement("div");
+                    previewItem.classList.add("preview-item");
+
+                    const img = document.createElement("img");
+                    img.src = p.image;
+                    img.alt = p.name;
+                    previewItem.appendChild(img);
+
+                    const text = document.createElement("p");
+                    text.textContent = p.name;
+                    previewItem.appendChild(text);
+
+                    previewItem.addEventListener("click", () => {
+                        window.location.href = p.link;
+                    });
+
+                    previewContainer.appendChild(previewItem);
+                });
+
+                previewContainer.style.display = "block";
+            } else {
+                previewContainer.style.display = "none";
+            }
+        });
+    </script>
+</body>
+
+</html>
